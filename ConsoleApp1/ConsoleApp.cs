@@ -11,9 +11,12 @@ using System.Threading.Tasks;
 namespace ConsoleApp1
 {
     class ConsoleApp
-    {
+    { 
+        string topic = "chat-message";
+        Uri uri = new Uri("http://localhost:9092");
         static void Main(string[] args)
         {
+           
             ConsoleApp ca = new ConsoleApp();
 
             int index = 200;
@@ -27,10 +30,6 @@ namespace ConsoleApp1
 
         private async Task<List<ProduceResponse>> sendMessage(string payload,  int index)
         {
-            Uri uri = new Uri("http://localhost:9092");
-
-            string topic = "chat-message";
-
             KafkaNet.Protocol.Message msg = new KafkaNet.Protocol.Message(payload.Trim());
 
             var options = new KafkaOptions(uri);
@@ -50,15 +49,11 @@ namespace ConsoleApp1
         }
         public string reciveMessage( int index)
         {
-            Uri uri = new Uri("http://localhost:9092");
-
-            string topicName = "chat-message";
-
             var options = new KafkaOptions(uri);
 
             var brokerRouter = new BrokerRouter(options);
 
-            var consumer = new Consumer(new ConsumerOptions(topicName, brokerRouter));
+            var consumer = new Consumer(new ConsumerOptions(topic, brokerRouter));
 
             string message = "";
 
