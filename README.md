@@ -1,5 +1,5 @@
 # kafka-sample-implementation
-simple kafka impelementation for .NET application using KafkaNet.
+simple kafka impelementation for .NET application using [KafkaNet].(https://github.com/Jroland/kafka-net).
 
 
 #steps:
