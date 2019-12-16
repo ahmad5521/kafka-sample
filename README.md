@@ -3,9 +3,10 @@ simple kafka impelementation for .NET application using KafkaNet.
 
 
 #steps:
+
 	1- start zookeeper:
 		./zookeeper-server-start.bat ../../config/zookeeper.properties
-
+		
 	2- start kafka server:
 		./kafka-server-start.bat ../../config/server.properties
 
